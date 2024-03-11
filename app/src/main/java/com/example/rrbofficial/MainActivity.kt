@@ -18,14 +18,14 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-
+        interpreter = Interpreter(loadModelFile()!!)
 
         val result: TextView = findViewById(R.id.textView)
         val editText: EditText = findViewById(R.id.editText)
         val run: Button = findViewById(R.id.button)
 
         run.setOnClickListener {
-            var input = FloatArray(1)
+            var input = FloatArray(1);
             input[0] =  editText.text.toString().toFloat()
             var output = Array(1){FloatArray(1)}
             interpreter?.run(input,output)
